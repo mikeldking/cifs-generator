@@ -9,6 +9,7 @@ In order to run the traffic generator, you must have a remote share setup. This 
 the shared folder in order to generate CIFS traffic.
 
 ## Run
-    Run the CIFS traffic generator using the following command
+
+Run the CIFS traffic generator using the following command
 
     $ node generator -s \\\\0.0.0.0\\share -d domain -u user -p password -t timeToRunInMs -o octetsOfTheFileToTransfer
