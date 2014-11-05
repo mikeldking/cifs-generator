@@ -5,7 +5,6 @@
  */
 var SMB2 = require('smb2'),
     program = require('commander'),
-    async = require('async'),
     ProgressBar = require('progress');
 
 
@@ -30,8 +29,8 @@ program
     .option('-d, --shareDomain <shareDomain>', 'shareDomain')
     .option('-u, --username <username>', 'username')
     .option('-p, --password <password>', 'password')
-    .option('-o, --octets <octets>', 'nubmer of octets in the files in the file transfer', parseFloat, 2048000)//default octets
-    .option('-t, --time <time>', 'the amount of time to generate traffic in ms', 600000)
+    .option('-o, --octets <octets>', 'number of octets in the files for transfer (defaults to 2048000)', parseFloat, 2048000)//default octets
+    .option('-t, --time <time>', 'the amount of time to generate traffic in ms (defaults to 300000)', 300000)
     .option('-r, --read <read>', 'flag to perform reads (defaults to true)', parseBool, true)
     .option('-w, --write <write>', 'flag to perform writes (defaults to true)', parseBool, true)
     .parse(process.argv);

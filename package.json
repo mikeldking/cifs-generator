@@ -22,9 +22,8 @@
   },
   "homepage": "https://github.com/mikeldking/cifs-generator",
   "dependencies": {
-    "smb2": "^0.2.4",
-    "commander": "^2.5.0",
-    "async": "^0.9.0",
-    "progress": "^1.1.8"
+    "smb2": "0.2.4",
+    "commander": "2.5.0",
+    "progress": "1.1.8"
   }
 }
