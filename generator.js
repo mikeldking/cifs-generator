@@ -106,7 +106,7 @@ function generateWriteTraffic(callback){
         if(err){
             throw new Error(err);
         }
-        statistics.reads++;
+        statistics.writes++;
         callback(null, null);
     });
 }
@@ -116,7 +116,7 @@ function generateReadTraffic(callback){
         if(err){
             throw new Error(err);
         }
-        statistics.writes++;
+        statistics.reads++;
         callback(null, null);
     });
 }
@@ -150,7 +150,7 @@ function generateReadTrafficCallback(error, result){
     else {
         outstandingTasks--;
         if (outstandingTasks === 0) {
-            console.log('\nTraffic generation complete\n');
+            console.log('\nTraffic generation complete');
             //write out the statistics
             printStatistics();
             //close the connection
@@ -181,15 +181,16 @@ function printStatistics(){
     if(!statisticsPrinted){
         console.log('\n---Statistics---');
         var duration = new Date().getTime() - startTime;
+        console.log("Elapsed time: "+duration+"ms");
         if(statistics.reads > 0){
             console.log('Reads: %d', statistics.reads);
             console.log('Reads/s: %d', (statistics.reads)/(duration/1000));
             console.log('Read bps: %d\n', (statistics.reads * writeBuffer.length)/(duration/1000))
         }
         if(statistics.writes > 0){
-            console.log('Writes: %d', statistics.reads);
-            console.log('Writes/s: %d', (statistics.reads)/(duration/1000));
-            console.log('Writes bps: %d\n', (statistics.reads * writeBuffer.length)/(duration/1000))
+            console.log('Writes: %d', statistics.writes);
+            console.log('Writes/s: %d', (statistics.writes)/(duration/1000));
+            console.log('Writes bps: %d\n', (statistics.writes * writeBuffer.length)/(duration/1000))
         }
         statisticsPrinted = true;
     }
